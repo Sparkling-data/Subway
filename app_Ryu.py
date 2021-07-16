@@ -15,7 +15,7 @@ def mychart():
 @app.route("/showchart", methods=["GET"])
 def showchart():
     
-    return TAE()
+    return hourchart()
 
 
 
