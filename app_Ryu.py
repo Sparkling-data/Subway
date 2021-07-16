@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template
-from chart import hourchart
+from chart_Ryu import hourchart, TAE
 
 app=Flask(__name__)
 
@@ -14,7 +14,9 @@ def mychart():
 
 @app.route("/showchart", methods=["GET"])
 def showchart():
-    return hourchart()
+    
+    return TAE()
+
 
 
 

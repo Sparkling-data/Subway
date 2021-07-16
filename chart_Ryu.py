@@ -30,5 +30,16 @@ def hourchart():
 
 
 
-if __name__=="__main__":
-    hourchart()
+def TAE():
+    df3 = pd.read_excel('./전처리/dataset/2020년_07월_교통카드_유무임통계자료.xlsx', thousands = ',')
+    df3 = df3[['호선명', '지하철역', '유임승차', '유임하차', '무임승차', '무임하차']]
+    # return df3.to_json(orient = 'records', force_ascii=False)
+    print(df3)
+    # return df3.to_json(orient = 'records', force_ascii=False)
+    return df3.to_html()
+    
+
+
+# if __name__=="__main__":
+#     hourchart()
+    # TAE()
