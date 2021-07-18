@@ -1,0 +1,41 @@
+// const line2stopQuery = 'input[name="line2stop"]:checked';
+          // const Selectedline2stop = document.querySelectorAll(line2stopQuery);
+
+          // // 선택된 목록에서 value 찾기
+          // var line2stopResult = ['시',];
+          // Selectedline2stop.forEach((el) => {
+          //   line2stopResult.push(el.value)
+          // });
+
+          // chas = [line2stopResult]
+
+          // for (stop in line2stopResult){
+
+          // };
+
+          // console.log(chas)
+          // // chas = [['time', '신림', '선릉', '을지로입구', '강남', '역삼', '성수', '봉천', '홍대입구']];
+
+          // for (i = 0; i < data.length; i++) {
+          //   chas.push([(i + 3) + '시간', data[i].신림, data[i].선릉, data[i].을지로입구, data[i].강남, data[i].역삼, data[i].성수, data[i].봉천, data[i].홍대입구]);
+          // };
+
+          // document.getElementById("line2chart").innerHTML = chas;
+
+          // var chart_data = google.visualization.arrayToDataTable(chas);
+
+          // var options = {
+          //   title: '시간대별 승차수',
+          //   curveType: 'function',
+          //   legend: { position: 'right' },
+          //   vAxis: {
+          //     viewWindow: {
+          //       max: 400000,
+          //       min: 0
+          //     }
+          //   }
+          // };
+
+          // var chart = new google.visualization.LineChart(document.getElementById('line2chart'));
+
+          // chart.draw(chart_data, options);

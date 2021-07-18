@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://kit.fontawesome.com/37d7733649.js" crossorigin="anonymous"></script>
 <style>
   html,
   body,
@@ -36,10 +37,58 @@
       return false;
     }
   }
+
+  // 체크박스 체크한값 확인하기
+  function getline2Value() {
+    const line2stopQuery = 'input[name="line2stop"]:checked';
+    const Selectedline2stop = document.querySelectorAll(line2stopQuery);
+
+    // 선택된 목록에서 value 찾기
+    var line2stopResult = [];
+    Selectedline2stop.forEach((el) => {
+      // line2stopResult.push += el.value + ','
+      line2stopResult.push(el.value)
+    });
+
+    // document.getElementById('linestoplist').innerHTML = line2stopResult;
+    document.getElementById('linestoplist').innerText = line2stopResult;
+    // console.log(line2stopResult)
+
+  }
+
+  function selectchart() {
+    // document.getElementById('img').src = "#";
+
+    const xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        // data = app.py에서 return 받은 Crawling.interparkcrawling(word)결과값
+        data = this.responseText;
+        // data = JSON.parse(data);
+        console.log(data)
+
+        function clear() {
+          document.getElementById("selectline2chart").innerHTML = "";
+          console.log('clear')
+        }
+        document.getElementById("selectline2chart").innerHTML=`<img src="{{url_for('static', filename='line2chart.png')}}" width=1300 height=1000>`
+        // document.getElementById("selectline2chart").innerHTML = `<img src="./static/img/line2chart.png" width=1000 height=600>`
+      }
+    };
+
+    querystring = "stoplist=" + document.getElementById('linestoplist').innerText;
+    xhttp.open("POST", "/selectstop");
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    console.log(querystring);
+    xhttp.send(querystring);
+
+  }
+
+
 </script>
 
 
-<body class="w3-light-grey">
+<body class="w3-light-grey" onload="chartline2()">
 
   <!-- Top container -->
   <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
@@ -49,16 +98,13 @@
   </div>
 
   <!-- Sidebar/menu -->
-  <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:200px;" id="mySidebar"><br>
+  <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:250px;" id="mySidebar"><br>
     <div class="w3-container w3-row">
       <div class="w3-col s4">
-        <img src="/w3images/avatar2.png" class="w3-circle w3-margin-right" style="width:46px">
+        <img src="static/img/metroicon.png" class="w3-circle w3-margin-right" style="width:80px">
       </div>
-      <div class="w3-col s8 w3-bar">
-        <span>Welcome, <strong>Mike</strong></span><br>
-        <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
-        <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
-        <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>
+      <div class="w3-col s8 w3-bar" style="vertical-align: middle;">
+        <span><strong>Welcome! <br> Subway World</strong></span><br>
       </div>
     </div>
     <hr>
@@ -67,17 +113,11 @@
     </div>
     <div class="w3-bar-block">
       <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
-        onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>&nbsp; Close Menu</a>
-      <a href="/" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>&nbsp; Overview</a>
-      <a href="/mychart" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-eye fa-fw"></i>&nbsp;
-        Views</a>
-      <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>&nbsp; Traffic</a>
-      <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>&nbsp; Geo</a>
-      <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>&nbsp; Orders</a>
-      <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>&nbsp; News</a>
-      <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bank fa-fw"></i>&nbsp; General</a>
-      <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i>&nbsp; History</a>
-      <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cog fa-fw"></i>&nbsp; Settings</a><br><br>
+      onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>&nbsp; Close Menu</a>
+    <a href="/" class="w3-bar-item w3-button w3-padding"><i class="fas fa-subway" style="color: black;size: 10px;"></i>&nbsp; HOME</a>
+    <a href="/mychart" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fas fa-subway" style="color: green;size: 20px;"></i>&nbsp; 2호선 시간대별 승차수 분석</a>
+    <a href="/main_JU" class="w3-bar-item w3-button w3-padding"><i class="fas fa-subway" style="color: rgb(253, 182, 253);size: 10px;"></i></i>&nbsp; 월별 데이터 정제 및 prophet 라이브러리 활용한 시각화</a>
+    <a href="/mychart_park" class="w3-bar-item w3-button w3-padding"><i class="fas fa-subway" style="color: blue;size: 10px;"></i></i>&nbsp;각 호선별 무임승차 조회 및 시각화</a>
     </div>
   </nav>
 
@@ -87,123 +127,134 @@
     title="close side menu" id="myOverlay"></div>
 
   <!-- !PAGE CONTENT! -->
-  <div class="w3-main" style="margin-left:200px;margin-top:43px;">
+  <div class="w3-main" style="margin-left:250px;margin-top:43px;">
 
     <!-- Header -->
     <header class="w3-container" style="padding-top:22px">
-      <h5><b><i class="fa fa-dashboard"></i> My Dashboard</b></h5>
+      <h5><b><i class="far fa-chart-bar"></i> My Dashboard</b></h5>
     </header>
+
+    <div id="line2chart" name="line2chart" style="width: 1000px; height: 500px">
+
+    </div>
 
     <div class="w3-row-padding w3-margin-bottom" style="overflow:scroll;">
       <h3>2호선 역 시간대별 승차수</h3>
       <form id=line2check onsubmit="return CheckForm(this)">
-        <input type="checkbox" id="시청" name="line2stop" value="시청">
+        <input type="checkbox" id="시청" name="line2stop" value="시청" onclick="getline2Value()">
         <label for="시청">시청</label>
-        <input type="checkbox" id="을지로입구" name="line2stop" value="을지로입구">
+        <input type="checkbox" id="을지로입구" name="line2stop" value="을지로입구" onclick="getline2Value()">
         <label for="을지로입구">을지로입구</label>
-        <input type="checkbox" id="을지로3가" name="line2stop" value="을지로3가">
+        <input type="checkbox" id="을지로3가" name="line2stop" value="을지로3가" onclick="getline2Value()">
         <label for="을지로3가">을지로3가</label>
-        <input type="checkbox" id="을지로4가" name="line2stop" value="을지로4가">
+        <input type="checkbox" id="을지로4가" name="line2stop" value="을지로4가" onclick="getline2Value()">
         <label for="을지로4가">을지로4가</label>
-        <input type="checkbox" id="동대문역사문화공원(DDP)" name="line2stop" value="동대문역사문화공원(DDP)">
+        <input type="checkbox" id="동대문역사문화공원(DDP)" name="line2stop" value="동대문역사문화공원(DDP)" onclick="getline2Value()">
         <label for="동대문역사문화공원(DDP)">동대문역사문화공원(DDP)</label>
-        <input type="checkbox" id="신당" name="line2stop" value="신당">
+        <input type="checkbox" id="신당" name="line2stop" value="신당" onclick="getline2Value()">
         <label for="신당">신당</label>
-        <input type="checkbox" id="상왕십리" name="line2stop" value="상왕십리">
+        <input type="checkbox" id="상왕십리" name="line2stop" value="상왕십리" onclick="getline2Value()">
         <label for="상왕십리">상왕십리</label>
-        <input type="checkbox" id="왕십리(성동구청)" name="line2stop" value="왕십리(성동구청)">
+        <input type="checkbox" id="왕십리(성동구청)" name="line2stop" value="왕십리(성동구청)" onclick="getline2Value()">
         <label for="왕십리(성동구청)">왕십리(성동구청)</label>
-        <input type="checkbox" id="한양대" name="line2stop" value="한양대">
+        <input type="checkbox" id="한양대" name="line2stop" value="한양대" onclick="getline2Value()">
         <label for="한양대">한양대</label>
-        <input type="checkbox" id="뚝섬" name="line2stop" value="뚝섬">
+        <input type="checkbox" id="뚝섬" name="line2stop" value="뚝섬" onclick="getline2Value()">
         <label for="뚝섬">뚝섬</label>
-        <input type="checkbox" id="성수" name="line2stop" value="성수">
+        <input type="checkbox" id="성수" name="line2stop" value="성수" onclick="getline2Value()">
         <label for="성수">성수</label>
-        <input type="checkbox" id="건대입구" name="line2stop" value="건대입구">
+        <input type="checkbox" id="건대입구" name="line2stop" value="건대입구" onclick="getline2Value()">
         <label for="건대입구">건대입구</label>
-        <input type="checkbox" id="구의(광진구청)" name="line2stop" value="구의(광진구청)">
+        <input type="checkbox" id="구의(광진구청)" name="line2stop" value="구의(광진구청)" onclick="getline2Value()">
         <label for="구의(광진구청)">구의(광진구청)</label>
-        <input type="checkbox" id="강변(동서울터미널)" name="line2stop" value="강변(동서울터미널)">
+        <input type="checkbox" id="강변(동서울터미널)" name="line2stop" value="강변(동서울터미널)" onclick="getline2Value()">
         <label for="강변(동서울터미널)">강변(동서울터미널)</label>
-        <input type="checkbox" id="잠실나루" name="line2stop" value="잠실나루">
+        <input type="checkbox" id="잠실나루" name="line2stop" value="잠실나루" onclick="getline2Value()">
         <label for="잠실나루">잠실나루</label>
-        <input type="checkbox" id="잠실(송파구청)" name="line2stop" value="잠실(송파구청)">
+        <input type="checkbox" id="잠실(송파구청)" name="line2stop" value="잠실(송파구청)" onclick="getline2Value()">
         <label for="잠실(송파구청)">잠실(송파구청)</label>
-        <input type="checkbox" id="잠실새내" name="line2stop" value="잠실새내">
+        <input type="checkbox" id="잠실새내" name="line2stop" value="잠실새내" onclick="getline2Value()">
         <label for="잠실새내">잠실새내</label>
-        <input type="checkbox" id="종합운동장" name="line2stop" value="종합운동장">
+        <input type="checkbox" id="종합운동장" name="line2stop" value="종합운동장" onclick="getline2Value()">
         <label for="종합운동장">종합운동장</label>
-        <input type="checkbox" id="삼성(무역센터)" name="line2stop" value="삼성(무역센터)">
+        <input type="checkbox" id="삼성(무역센터)" name="line2stop" value="삼성(무역센터)" onclick="getline2Value()">
         <label for="삼성(무역센터)">삼성(무역센터)</label>
-        <input type="checkbox" id="선릉" name="line2stop" value="선릉">
+        <input type="checkbox" id="선릉" name="line2stop" value="선릉" onclick="getline2Value()">
         <label for="선릉">선릉</label>
-        <input type="checkbox" id="역삼" name="line2stop" value="역삼">
+        <input type="checkbox" id="역삼" name="line2stop" value="역삼" onclick="getline2Value()">
         <label for="역삼">역삼</label>
-        <input type="checkbox" id="강남" name="line2stop" value="강남">
+        <input type="checkbox" id="강남" name="line2stop" value="강남" onclick="getline2Value()">
         <label for="강남">강남</label>
-        <input type="checkbox" id="교대(법원.검찰청)" name="line2stop" value="교대(법원.검찰청)">
+        <input type="checkbox" id="교대(법원.검찰청)" name="line2stop" value="교대(법원.검찰청)" onclick="getline2Value()">
         <label for="교대(법원.검찰청)">교대(법원.검찰청)</label>
-        <input type="checkbox" id="서초" name="line2stop" value="서초">
+        <input type="checkbox" id="서초" name="line2stop" value="서초" onclick="getline2Value()">
         <label for="서초">서초</label>
-        <input type="checkbox" id="방배" name="line2stop" value="방배">
+        <input type="checkbox" id="방배" name="line2stop" value="방배" onclick="getline2Value()">
         <label for="방배">방배</label>
-        <input type="checkbox" id="사당" name="line2stop" value="사당">
+        <input type="checkbox" id="사당" name="line2stop" value="사당" onclick="getline2Value()">
         <label for="사당">사당</label>
-        <input type="checkbox" id="낙성대(강감찬)" name="line2stop" value="낙성대(강감찬)">
+        <input type="checkbox" id="낙성대(강감찬)" name="line2stop" value="낙성대(강감찬)" onclick="getline2Value()">
         <label for="낙성대(강감찬)">낙성대(강감찬)</label>
-        <input type="checkbox" id="서울대입구(관악구청)" name="line2stop" value="서울대입구(관악구청)">
+        <input type="checkbox" id="서울대입구(관악구청)" name="line2stop" value="서울대입구(관악구청)" onclick="getline2Value()">
         <label for="서울대입구(관악구청)">서울대입구(관악구청)</label>
-        <input type="checkbox" id="봉천" name="line2stop" value="봉천">
+        <input type="checkbox" id="봉천" name="line2stop" value="봉천" onclick="getline2Value()">
         <label for="봉천">봉천</label>
-        <input type="checkbox" id="신림" name="line2stop" value="신림">
+        <input type="checkbox" id="신림" name="line2stop" value="신림" onclick="getline2Value()">
         <label for="신림">신림</label>
-        <input type="checkbox" id="신대방" name="line2stop" value="신대방">
+        <input type="checkbox" id="신대방" name="line2stop" value="신대방" onclick="getline2Value()">
         <label for="신대방">신대방</label>
-        <input type="checkbox" id="구로디지털단지" name="line2stop" value="구로디지털단지">
+        <input type="checkbox" id="구로디지털단지" name="line2stop" value="구로디지털단지" onclick="getline2Value()">
         <label for="구로디지털단지">구로디지털단지</label>
-        <input type="checkbox" id="대림(구로구청)" name="line2stop" value="대림(구로구청)">
+        <input type="checkbox" id="대림(구로구청)" name="line2stop" value="대림(구로구청)" onclick="getline2Value()">
         <label for="대림(구로구청)">대림(구로구청)</label>
-        <input type="checkbox" id="신도림" name="line2stop" value="신도림">
+        <input type="checkbox" id="신도림" name="line2stop" value="신도림" onclick="getline2Value()">
         <label for="신도림">신도림</label>
-        <input type="checkbox" id="문래" name="line2stop" value="문래">
+        <input type="checkbox" id="문래" name="line2stop" value="문래" onclick="getline2Value()">
         <label for="문래">문래</label>
-        <input type="checkbox" id="영등포구청" name="line2stop" value="영등포구청">
+        <input type="checkbox" id="영등포구청" name="line2stop" value="영등포구청" onclick="getline2Value()">
         <label for="영등포구청">영등포구청</label>
-        <input type="checkbox" id="당산" name="line2stop" value="당산">
+        <input type="checkbox" id="당산" name="line2stop" value="당산" onclick="getline2Value()">
         <label for="당산">당산</label>
-        <input type="checkbox" id="합정" name="line2stop" value="합정">
+        <input type="checkbox" id="합정" name="line2stop" value="합정" onclick="getline2Value()">
         <label for="합정">합정</label>
-        <input type="checkbox" id="홍대입구" name="line2stop" value="홍대입구">
+        <input type="checkbox" id="홍대입구" name="line2stop" value="홍대입구" onclick="getline2Value()">
         <label for="홍대입구">홍대입구</label>
-        <input type="checkbox" id="신촌" name="line2stop" value="신촌">
+        <input type="checkbox" id="신촌" name="line2stop" value="신촌" onclick="getline2Value()">
         <label for="신촌">신촌</label>
-        <input type="checkbox" id="이대" name="line2stop" value="이대">
+        <input type="checkbox" id="이대" name="line2stop" value="이대" onclick="getline2Value()">
         <label for="이대">이대</label>
-        <input type="checkbox" id="아현" name="line2stop" value="아현">
+        <input type="checkbox" id="아현" name="line2stop" value="아현" onclick="getline2Value()">
         <label for="아현">아현</label>
-        <input type="checkbox" id="충정로(경기대입구)" name="line2stop" value="충정로(경기대입구)">
+        <input type="checkbox" id="충정로(경기대입구)" name="line2stop" value="충정로(경기대입구)" onclick="getline2Value()">
         <label for="충정로(경기대입구)">충정로(경기대입구)</label>
-        <input type="checkbox" id="용답" name="line2stop" value="용답">
+        <input type="checkbox" id="용답" name="line2stop" value="용답" onclick="getline2Value()">
         <label for="용답">용답</label>
-        <input type="checkbox" id="신답" name="line2stop" value="신답">
+        <input type="checkbox" id="신답" name="line2stop" value="신답" onclick="getline2Value()">
         <label for="신답">신답</label>
-        <input type="checkbox" id="신설동" name="line2stop" value="신설동">
+        <input type="checkbox" id="신설동" name="line2stop" value="신설동" onclick="getline2Value()">
         <label for="신설동">신설동</label>
-        <input type="checkbox" id="도림천" name="line2stop" value="도림천">
+        <input type="checkbox" id="도림천" name="line2stop" value="도림천" onclick="getline2Value()">
         <label for="도림천">도림천</label>
-        <input type="checkbox" id="양천구청" name="line2stop" value="양천구청">
+        <input type="checkbox" id="양천구청" name="line2stop" value="양천구청" onclick="getline2Value()">
         <label for="양천구청">양천구청</label>
-        <input type="checkbox" id="신정네거리" name="line2stop" value="신정네거리">
+        <input type="checkbox" id="신정네거리" name="line2stop" value="신정네거리" onclick="getline2Value()">
         <label for="신정네거리">신정네거리</label>
-        <input type="checkbox" id="용두(동대문구청)" name="line2stop" value="용두(동대문구청)">
+        <input type="checkbox" id="용두(동대문구청)" name="line2stop" value="용두(동대문구청)" onclick="getline2Value()">
         <label for="용두(동대문구청)">용두(동대문구청)</label>
         <button type="submit">역입력완료</button>
       </form>
+      <br>
+      <h4>체크한 역 확인</h4>
+      <div id='linestoplist'>
+        <!-- <div> -->
+        <!-- <input type="text" id='linestoplist'> -->
+      </div>
 
-      <button id="stop" name="line2" onclick="chartline2()">차트 그리기</button>
-      <div id="line2chart" name="line2chart" style="width: 1000px; height: 500px">
+      <button id="stop" name="line2" onclick="selectchart();">차트 그리기</button>
+      <div id="selectline2chart" name="selectline2chart" style="width: 1000px; height: 1000px">
 
       </div>
+
     </div>
 
     <div class="w3-panel">
@@ -389,28 +440,32 @@
         if (this.readyState == 4 && this.status == 200) {
           data = this.responseText;
           data = JSON.parse(data)
-          console.log(data)
-          // document.getElementById("line2chart").innerHTML = data;
+          // console.log(data)
+          document.getElementById("line2chart").innerHTML = data;
 
+          // console.log(chas)
           chas = [['time', '신림', '선릉', '을지로입구', '강남', '역삼', '성수', '봉천', '홍대입구']];
-          for (i = 0; i < data.length; i++) {
-            chas.push([(i + 3) + '시간', data[i].신림, data[i].선릉, data[i].을지로입구, data[i].강남, data[i].역삼, data[i].성수, data[i].봉천, data[i].홍대입구]);
-          };
 
-          document.getElementById("line2chart").innerHTML = chas;
+          for (i = 1; i < data.length; i++) {
+            chas.push([(i + 3) + '시', data[i].신림, data[i].선릉, data[i].을지로입구, data[i].강남, data[i].역삼, data[i].성수, data[i].봉천, data[i].홍대입구]);
+
+          };
+          console.log(chas)
+
+          // document.getElementById("line2chart").innerHTML = chas;
 
           var chart_data = google.visualization.arrayToDataTable(chas);
 
           var options = {
-            title: '시간대별 승차수',
+            title: '2호선 시간별 출퇴근인원 및 핫플레이스',
             curveType: 'function',
             legend: { position: 'right' },
             vAxis: {
-                    viewWindow: {
-                        max: 400000,
-                        min: 0
-                    }
-                }
+              viewWindow: {
+                max: 400000,
+                min: 0
+              }
+            }
           };
 
           var chart = new google.visualization.LineChart(document.getElementById('line2chart'));
@@ -420,6 +475,7 @@
         }
 
       }
+
       xhttp.open("GET", "/showchart");
       xhttp.send();
     }

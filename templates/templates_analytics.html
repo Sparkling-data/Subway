@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://kit.fontawesome.com/37d7733649.js" crossorigin="anonymous"></script>
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
@@ -21,10 +22,10 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
   <div class="w3-container w3-row">
     <div class="w3-col s4">
-      <img src="static/img/subway_blue.png" class="w3-circle w3-margin-right" style="width:46px">
+      <img src="static/img/metroicon.png" class="w3-circle w3-margin-right" style="width:80px">
     </div>
-    <div class="w3-col s8 w3-bar">
-      <span>Welcome, <strong>Mike</strong></span><br>
+    <div class="w3-col s8 w3-bar" style="vertical-align: middle;">
+      <span><strong>Welcome! <br> Subway World</strong></span><br>
     </div>
   </div>
   <hr>
@@ -32,16 +33,12 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <h5>Dashboard</h5>
   </div>
   <div class="w3-bar-block">
-    <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>&nbsp; Close Menu</a>
-    <a href="/" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>&nbsp; Overview</a>
-    <a href="/mychart" class="w3-bar-item w3-button w3-padding"><i class="fas fa-subway" style="color: green;size: 10px;"></i>&nbsp; 2호선 시간대별 승차수 분석</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>&nbsp; Traffic</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>&nbsp; Geo</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>&nbsp; Orders</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>&nbsp; News</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bank fa-fw"></i>&nbsp; General</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i>&nbsp; History</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cog fa-fw"></i>&nbsp; Settings</a><br><br>
+    <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
+      onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>&nbsp; Close Menu</a>
+    <a href="/" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fas fa-subway" style="color: black;size: 10px;"></i>&nbsp; HOME</a>
+    <a href="/mychart" class="w3-bar-item w3-button w3-padding"><i class="fas fa-subway" style="color: green;size: 20px;"></i>&nbsp; 2호선 시간대별 승차수 분석</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fas fa-subway" style="color: rgb(253, 182, 253);size: 10px;"></i></i>&nbsp; 월별 데이터 정제 및 prophet 라이브러리 활용한 시각화</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fas fa-subway" style="color: blue;size: 10px;"></i></i>&nbsp;각 호선별 무임승차 조회 및 시각화</a>
   </div>
 </nav>
 
@@ -54,7 +51,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
-    <h5><b><i class="fa fa-dashboard"></i> My Dashboard</b></h5>
+    <h5><b><i class="fas fa-users"></i> Our Team</b></h5>
   </header>
 
   <div class="w3-row-padding w3-margin-bottom">

@@ -6,7 +6,7 @@ import matplotlib as mpl
 import seaborn as sns
 from matplotlib import font_manager, rc
 import glob
-from fbprophet import Prophet
+# from fbprophet import Prophet
 
 # -*- conding: utf-8 -*-
 plt.rcParams['font.family'] = 'Malgun Gothic'
@@ -16,7 +16,7 @@ rc('font', family=font_name)
 
 #선영
 def hourchart():
-    
+    # -*- conding: utf-8 -*-
     hour = pd.read_excel('./datas/monthlytotal_202106Tmoney.xls', sheet_name='지하철 시간대별 이용현황', thousands=',', header=1)
     hour.columns = ['사용월', '호선명', '역ID', '지하철역', '04시승차', '04시하차', '05시승차', '05시하차', '06시승차', '06시하차', '07시승차', '07시하차', '08시승차', '08시하차', '09시승차', '09시하차', '10시승차', '10시하차', '11시승차', '11시하차', '12시승차', '12시하차', '13시승차', '13시하차', '14시승차', '14시하차', '15시승차', '15시하차', '16시승차', '16시하차', '17시승차', '17시하차', '18시승차', '18시하차', '19시승차', '19시하차', '20시승차', '20시하차', '21시승차', '21시하차', '22시승차', '22시하차', '23시승차', '23시하차', '24시승차', '24시하차', '01시승차', '01시하차', '02시승차', '02시하차', '03시승차', '03시하차', '작업일시']
     del hour['작업일시']
@@ -50,6 +50,7 @@ def Selectstop(stops):
 
 #태영
 def selectnum(line):
+    # -*- conding: utf-8 -*-
     df3 = pd.read_excel('./전처리/dataset/2020년_07월_교통카드_유무임통계자료.xlsx', thousands = ',')
     df3 = df3[['호선명', '지하철역', '유임승차', '유임하차', '무임승차', '무임하차']]
     # 1호선관련
@@ -64,7 +65,7 @@ def selectnum(line):
         pp1 = sns.catplot(x='지하철역', y='무임승차', data=dfmean11, kind='bar')
         plt.rcParams['lines.linewidth'] = 4
         plt.xticks(rotation=90)
-        pp1.savefig("static/output1.jpeg", bbox_inches='tight', pad_inches=0.5)
+        pp1.savefig("./static/img/output1.jpeg", bbox_inches='tight', pad_inches=0.5)
     
 
     elif line == '2호선':
@@ -84,7 +85,7 @@ def selectnum(line):
         pp2 = sns.catplot(x='지하철역', y='무임승차', data=dfmean22, kind='bar')
         plt.rcParams['lines.linewidth'] = 4
         plt.xticks(rotation=90)
-        pp2.savefig("static/output1.jpeg", bbox_inches='tight', pad_inches=0.5)
+        pp2.savefig("./static/img/output1.jpeg", bbox_inches='tight', pad_inches=0.5)
 
 
     elif line == '3호선':
@@ -101,7 +102,7 @@ def selectnum(line):
         pp3 = sns.catplot(x='지하철역', y='무임승차', data=dfmean33, kind='bar')
         plt.rcParams['lines.linewidth'] = 4
         plt.xticks(rotation=90)
-        pp3.savefig("static/output1.jpeg", bbox_inches='tight', pad_inches=0.5)
+        pp3.savefig("./static/img/output1.jpeg", bbox_inches='tight', pad_inches=0.5)
 
 
     elif line == '4호선':
@@ -119,7 +120,7 @@ def selectnum(line):
         pp4 = sns.catplot(x='지하철역', y='무임승차', data=dfmean44, kind='bar')
         plt.rcParams['lines.linewidth'] = 4
         plt.xticks(rotation=90) 
-        pp4.savefig("static/output1.jpeg", bbox_inches='tight', pad_inches=0.5)
+        pp4.savefig("./static/img/output1.jpeg", bbox_inches='tight', pad_inches=0.5)
 
     else :
         # 5호선
@@ -134,7 +135,7 @@ def selectnum(line):
         pp5 = sns.catplot(x='지하철역', y='무임승차', data=dfmean55, kind='bar')
         plt.rcParams['lines.linewidth'] = 4
         plt.xticks(rotation=90) 
-        pp5.savefig("static/output1.jpeg", bbox_inches='tight', pad_inches=0.5)
+        pp5.savefig("./static/img/output1.jpeg", bbox_inches='tight', pad_inches=0.5)
 
 
 
@@ -226,67 +227,67 @@ def chart():
 
 
     #신림역 1년뒤 데이터 예측
-    nyc_subway_data = glob.glob('./전처리/dataset/c*')
+    # nyc_subway_data = glob.glob('./전처리/dataset/c*')
 
-    subway1 = pd.read_excel(nyc_subway_data[0])
-    subway2 = pd.read_excel(nyc_subway_data[1])
-    subway3 = pd.read_excel(nyc_subway_data[2])
-    subway4 = pd.read_excel(nyc_subway_data[3])
-    subway5 = pd.read_excel(nyc_subway_data[4])
-    subway6 = pd.read_excel(nyc_subway_data[5])
-    subway7 = pd.read_excel(nyc_subway_data[6])
-    subway8 = pd.read_excel(nyc_subway_data[7])
-    subway9 = pd.read_excel(nyc_subway_data[8])
-    subway10 = pd.read_excel(nyc_subway_data[9])
-    subway11 = pd.read_excel(nyc_subway_data[10])
-    subway12 = pd.read_excel(nyc_subway_data[11])
+    # subway1 = pd.read_excel(nyc_subway_data[0])
+    # subway2 = pd.read_excel(nyc_subway_data[1])
+    # subway3 = pd.read_excel(nyc_subway_data[2])
+    # subway4 = pd.read_excel(nyc_subway_data[3])
+    # subway5 = pd.read_excel(nyc_subway_data[4])
+    # subway6 = pd.read_excel(nyc_subway_data[5])
+    # subway7 = pd.read_excel(nyc_subway_data[6])
+    # subway8 = pd.read_excel(nyc_subway_data[7])
+    # subway9 = pd.read_excel(nyc_subway_data[8])
+    # subway10 = pd.read_excel(nyc_subway_data[9])
+    # subway11 = pd.read_excel(nyc_subway_data[10])
+    # subway12 = pd.read_excel(nyc_subway_data[11])
 
-    df = pd.concat([subway1, subway5, subway6, subway7, subway8, subway9, subway10, subway11, subway12, subway2, subway3, subway4])
+    # df = pd.concat([subway1, subway5, subway6, subway7, subway8, subway9, subway10, subway11, subway12, subway2, subway3, subway4])
 
-    s1 = df.query("노선명 =='2호선' & 역명=='신림'") 
+    # s1 = df.query("노선명 =='2호선' & 역명=='신림'") 
 
-    del s1["노선명"]
-    del s1["역명"]
-    del s1["하차총승객수"]
-    del s1["등록일자"]
+    # del s1["노선명"]
+    # del s1["역명"]
+    # del s1["하차총승객수"]
+    # del s1["등록일자"]
 
-    s1 = s1.rename(columns={'사용일자':'ds', '승차총승객수':'y'})
+    # s1 = s1.rename(columns={'사용일자':'ds', '승차총승객수':'y'})
 
-    s1["ds"] = s1["ds"].astype(str)
-    s1["ds"] = pd.to_datetime(s1["ds"])
+    # s1["ds"] = s1["ds"].astype(str)
+    # s1["ds"] = pd.to_datetime(s1["ds"])
 
-    m = Prophet(yearly_seasonality=True, daily_seasonality=True)
-    m.fit(s1)
-    future=m.make_future_dataframe(periods=366)
-    forecast=m.predict(future)
+    # # m = Prophet(yearly_seasonality=True, daily_seasonality=True)
+    # m.fit(s1)
+    # future=m.make_future_dataframe(periods=366)
+    # forecast=m.predict(future)
     
-    m.plot(forecast, xlabel= 'Date', ylabel='passengers')
-    plt.savefig('./static/img/chart02.png')
+    # m.plot(forecast, xlabel= 'Date', ylabel='passengers')
+    # plt.savefig('./static/img/chart02.png')
 
-    # 노원역 1년뒤 예상 승차승객수 시각화
+    # # 노원역 1년뒤 예상 승차승객수 시각화
 
-    s2 = df.query("노선명 =='4호선' & 역명=='노원'") 
+    # s2 = df.query("노선명 =='4호선' & 역명=='노원'") 
 
-    del s2["노선명"]
-    del s2["역명"]
-    del s2["하차총승객수"]
-    del s2["등록일자"]
+    # del s2["노선명"]
+    # del s2["역명"]
+    # del s2["하차총승객수"]
+    # del s2["등록일자"]
 
-    s2 = s2.rename(columns={'사용일자':'ds', '승차총승객수':'y'})
+    # s2 = s2.rename(columns={'사용일자':'ds', '승차총승객수':'y'})
 
-    s2["ds"] = s2["ds"].astype(str)
-    s2["ds"] = pd.to_datetime(s2["ds"])
+    # s2["ds"] = s2["ds"].astype(str)
+    # s2["ds"] = pd.to_datetime(s2["ds"])
 
 
-    m = Prophet(yearly_seasonality=True, daily_seasonality=True)
-    m.fit(s2)
-    future=m.make_future_dataframe(periods=366)
-    forecast=m.predict(future)
+    # # m = Prophet(yearly_seasonality=True, daily_seasonality=True)
+    # m.fit(s2)
+    # future=m.make_future_dataframe(periods=366)
+    # forecast=m.predict(future)
     
-    m.plot(forecast, xlabel= 'Date', ylabel='passengers')
-    plt.savefig('./static/img/chart03.png')
+    # m.plot(forecast, xlabel= 'Date', ylabel='passengers')
+    # plt.savefig('./static/img/chart03.png')
 
-    plt.show()
+    # plt.show()
 
 
 
@@ -387,7 +388,13 @@ def chart():
 
 
 
-
+# -*- conding: utf-8 -*-
+# if __name__=="__main__":
+#     # -*- conding: utf-8 -*-
+# #     hourchart()
+# #     TAE()
+# #     Selectstop()
+#     selectnum('1호선')
 
 
 

@@ -39,10 +39,10 @@
   <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:250px;" id="mySidebar"><br>
     <div class="w3-container w3-row">
       <div class="w3-col s4">
-        <img src="static/img/subway_blue.png" class="w3-circle w3-margin-right" style="width:46px">
+        <img src="static/img/metroicon.png" class="w3-circle w3-margin-right" style="width:80px">
       </div>
-      <div class="w3-col s8 w3-bar">
-        <span><strong>Welcome to Subway</strong></span><br>
+      <div class="w3-col s8 w3-bar" style="vertical-align: middle;">
+        <span><strong>Welcome! <br> Subway World</strong></span><br>
 
       </div>
     </div>
@@ -54,13 +54,13 @@
       <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
         onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>&nbsp; Close Menu</a>
       <a href="/" class="w3-bar-item w3-button w3-padding"><i class="fas fa-subway"
-          style="color: green;size: 10px;"></i>&nbsp; 첫 화면</a>
-      <a href="/mychart" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fas fa-subway"
+          style="color: black;size: 10px;"></i>&nbsp; HOME</a>
+      <a href="/mychart" class="w3-bar-item w3-button w3-padding"><i class="fas fa-subway"
           style="color: green;size: 20px;"></i>&nbsp; 2호선 시간대별 승차수 분석</a>
-      <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fas fa-subway"
-          style="color: green;size: 10px;"></i></i>&nbsp; 재선&유경</a>
-      <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fas fa-subway"
-          style="color: green;size: 10px;"></i></i>&nbsp; 태영</a>
+      <a href="/main_JU" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fas fa-subway"
+          style="color: rgb(253, 182, 253);size: 10px;"></i></i>&nbsp; 월별 데이터 정제 및 prophet 라이브러리 활용한 시각화</a>
+      <a href="/mychart_park" class="w3-bar-item w3-button w3-padding"><i class="fas fa-subway"
+          style="color: blue;size: 10px;"></i></i>&nbsp;각 호선별 무임승차 조회 및 시각화</a>
     </div>
   </nav>
 
@@ -74,7 +74,7 @@
 
     <!-- Header -->
     <header class="w3-container" style="padding-top:22px">
-      <h5><b><i class="fa fa-dashboard"></i> Visualization</b></h5>
+      <h5><b><i class="far fa-chart-bar"></i> Visualization</b></h5>
       <button onclick="sigak2()">신림1년뒤예상그래프</button><br>
       <button onclick="sigak1()">노원1년뒤예상그래프</button><br>
       <button onclick="sigak3()">20년 11월vs12월</button><br>

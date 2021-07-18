@@ -1,15 +1,12 @@
-from chart_ty import selectnum
 from flask import Flask, render_template, jsonify, request
 import json
 import time
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
-from chart_maker import chart_maker
-from flask.json import jsonify
-from flask import Flask, render_template, request
-from flask import Flask, request, render_template
-from chart_Ryu import hourchart
+# from chart_maker import chart_maker
+
+from chart_last import hourchart, selectnum
 
 import pandas as pd
 import numpy as np
@@ -52,11 +49,12 @@ def mychart_park():
 def showchart9():
     stops = request.form.get('line')
     selectnum(stops)
+    return '아무거낭'
     
 
 
 # 재선&유경
-@app.route('/', methods=["GET"])
+@app.route('/main_JU', methods=["GET"])
 def basic():
     if request.method =="GET":
         return render_template('mychart_JU.html')
@@ -81,10 +79,6 @@ def plot3():
 def plot4():
 
   return '{"img04" : "./static/img/chart04.png"}'
-
-
-
-
 
 
 
