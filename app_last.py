@@ -6,7 +6,7 @@ from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 # from chart_maker import chart_maker
 
-from chart_last import hourchart, selectnum
+from chart_last import hourchart, selectnum, Selectstop
 
 import pandas as pd
 import numpy as np
@@ -33,6 +33,7 @@ def showchart():
 def selectstop():
     stops = request.form.get('stoplist')
     stops = stops.split(',')
+    Selectstop(stops)
     print(stops)
     return '가즈아'
 

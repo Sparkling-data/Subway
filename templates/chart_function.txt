@@ -39,3 +39,31 @@
           // var chart = new google.visualization.LineChart(document.getElementById('line2chart'));
 
           // chart.draw(chart_data, options);
+
+
+
+
+
+
+
+
+function selectchart() {
+
+    const xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        // data = app.py에서 return 받은 결과값
+        data = this.responseText;
+        data = JSON.parse(data);
+        console.log(data)
+
+    };
+
+    queryString = "stoplist=" + document.getElementById('div id 적기!!').innerText;
+
+    xhttp.open("POST", "/selectstop");   
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    console.log(queryString)
+    xhttp.send(queryString);
+
+  }

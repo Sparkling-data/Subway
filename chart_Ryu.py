@@ -72,7 +72,7 @@ def Selectstop(stops):
 
     hour_two_on_change.plot(y=stops, kind='line', figsize=(15,10), fontsize=18)
     plt.title('202106 시간별 2호선역 승하차객수', fontsize=30)
-    plt.savefig('./static/line2chart.png')
+    plt.savefig('./static/img/line2chart.png')
     # return './static/img/line2chart.png'
     # plt.show()
 
