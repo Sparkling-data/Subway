@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template
-from chart_Ryu import hourchart, TAE
+from chart_Ryu import hourchart, TAE, Selectstop
 
 app=Flask(__name__)
 
@@ -9,7 +9,7 @@ def get():
 
 @app.route("/mychart", methods=["GET"])
 def mychart():
-    return render_template("mychart.html")
+    return render_template("mychart_Ryu.html")
 
 
 @app.route("/showchart", methods=["GET"])
@@ -17,6 +17,16 @@ def showchart():
     
     return hourchart()
 
+@app.route("/selectstop", methods=["POST"])
+def selectstop():
+    # stopslist = []
+    stops = request.form.get('stoplist')
+    stops = stops.split(',')
+    print(stops)
+
+    
+    return '가즈아'
+    # return Selectstop(stops)
 
 
 
