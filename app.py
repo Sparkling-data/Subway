@@ -9,7 +9,7 @@ app.config['JSON_AS_ASCII'] = False
 
 
 
-
+#  재선 & 유경
 @app.route('/', methods=["GET"])
 def basic():
 
@@ -17,11 +17,17 @@ def basic():
     if request.method =="GET":
         return render_template('main.html')
     
-@app.route('/sigak', methods=['POST'])
-def plot():
+@app.route('/sigak2', methods=['POST'])
+def plot2():
 
-  return '{"img01" : "./static/images/chart02.png"}'
+  return '{"img01" : "./static/img/chart02.png"}'
 
+@app.route('/sigak1', methods=['POST'])
+def plot1():
+
+  return '{"img02" : "./static/img/chart03.png"}'
+
+# -----------------------------
 
 if __name__=="__main__":
     app.run(debug=True, host="127.0.0.1", port="5000")
