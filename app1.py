@@ -39,6 +39,8 @@ def plot3():
 def plot4():
 
   return '{"img04" : "./static/img/chart04.png"}'
+
+  
 # -----------------------------
 
 if __name__=="__main__":
