@@ -41,6 +41,7 @@
 &nbsp;&nbsp;&nbsp;2. 추가 역할 분담</p>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 태영 :  무임승차 표 스스로 작품완성</p>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 재선 : 월별 데이터(데이터 정제(1~12) > 45호선)</p>
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 유경 : 월별 데이터(데이터 정제(1~12) > 123호선)</p>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 선영 : 시간별 이용현황 다중 선택지로 user가 선택할 수 있도록</p>
 
