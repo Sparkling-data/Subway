@@ -11,13 +11,19 @@
 <!-- 날짜별 진행과정-->
 <h2> :calendar: Progress by date
 &nbsp;&nbsp;&nbsp;<h3><details><summary> 첫번째 회의 [210708] </summary></p>
-&nbsp;&nbsp;&nbsp;1. 아이디어 활용방안 결정 : </p>
-&nbsp;&nbsp;&nbsp;2. 데이터 수집 및 삽입</p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 'champions' Table의 155개 데이터</p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 'items' Table의 171개 데이터</p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 'runes' Table의 17개 데이터</p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 'spell' Table의 10개 데이터</p>
-&nbsp;&nbsp;&nbsp;3. diagram 제작</p></details>
+&nbsp;&nbsp;&nbsp;1. 아이디어 활용방안 논의 및 결정 : </p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 코로나로 인한 평일과 주말의 유동인구차이 분석</p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 지하철 칸의 혼잡도 분석</p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 1호선의 어르신들이 많은거같은데 기분탓일까? 분석</p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 월별로 특히 사람이 많이 몰리는 곳(12월의 명동 같은...)을 피할 수 있도록 유동인구 분석</p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 시간대별 이용자수 분석</p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 늦은시간에 승차인이 많은 곳 = 서울내 핫플인증인것같은데 이를 분석</p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 여기서 '1호선의 어르신들이 많은거같은데 기분탓일까? 분석' 아이디어와 '월별로 특히 사람이 많이 몰리는 곳(12월의 명동 같은...)을 피할 수 있도록 유동인구 분석' 아이디어 채택</p>
+&nbsp;&nbsp;&nbsp;2. 데이터 수집 </p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 티머니 사이트 지하철 데이터 - https://www.t-money.co.kr/ncs/pct/ugd/ReadTrcrStstList.dev;jsessionid=H5SkfKE0ckd3Faql1OL6Kg2ddeCpmp6JvU5HdmdScaPWLdhNJo3s0jc0rSpfTiN1.czzw01ip_servlet_tmyweb</p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 202101~202105 지하철 호선별 역별 이용자수 - http://data.seoul.go.kr/dataList/OA-12914/S/1/datasetView.do</p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 전철 지하철 2019 요일별 승하차 총합 데이터 - https://gits.gg.go.kr/gtdb/web/trafficDb/railRoad/TransitSWPass.do</p>
+
 
 &nbsp;&nbsp;&nbsp;<h3><details><summary> 2일차 [210622 / D-2] </summary></p>
 &nbsp;&nbsp;&nbsp;1. Table 수정 및 데이터 추가삽입 : 'champions'</p>
