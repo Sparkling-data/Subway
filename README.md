@@ -25,25 +25,32 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 전철 지하철 2019 요일별 승하차 총합 데이터 - https://gits.gg.go.kr/gtdb/web/trafficDb/railRoad/TransitSWPass.do</p>
 
 
-&nbsp;&nbsp;&nbsp;<h3><details><summary> 2일차 [210622 / D-2] </summary></p>
-&nbsp;&nbsp;&nbsp;1. Table 수정 및 데이터 추가삽입 : 'champions'</p>
-&nbsp;&nbsp;&nbsp;2. html main 페이지 제작</p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- logo, 배너 img 제작</p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 배너 link 연결</p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- css 파일제작</p>
-&nbsp;&nbsp;&nbsp;3. app.py / dao.py code 제작</p></details>
+&nbsp;&nbsp;&nbsp;<h3><details><summary> 두번째 회의 [210710] </summary></p>
+&nbsp;&nbsp;&nbsp;1. 페이지 구상 아이디어 회의 </p>
+&nbsp;&nbsp;&nbsp;2. 사용할 기술셋 결정</p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 판다스</p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- html</p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- chart</p>
+&nbsp;&nbsp;&nbsp;3. 각자 역할 분담</p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 태영 : 티머니 데이터(무임승차 표) 정제(1명) > 일단 1달만 테스트 > 호선별로 분류하고 차트를 그려서 무임승차 수가 많은 역을 따로 빼서 분석</p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 재선, 유경, 선영 : 티머니 월별 총 승차수 데이터 정제 -> 전체호선(X), 호선 후보 : 1~5호선 -> 티머니 사이트에서 2020(코로나)1월 ~ 12월(3명) > 4개월분
+	> 재선(1~4), 유경(5~8), 선영(9~12) > 공통 데이터 프레임 정하기 > 월요일에 회의전까지 차트 1개씩은 그려보고 공통 데이터프레임 생각해오기</p>
 
-&nbsp;&nbsp;&nbsp;<h3><details><summary> 3일차 [210623 / D-1] </summary></p>
-&nbsp;&nbsp;&nbsp;1. detail 코드 제작</p>
-&nbsp;&nbsp;&nbsp;2. detail 디자인 수정</p>
+&nbsp;&nbsp;&nbsp;<h3><details><summary> 세번째 회의 [210713] </summary></p>
+&nbsp;&nbsp;&nbsp;1. 중간점검 </p>
+&nbsp;&nbsp;&nbsp;2. 추가 역할 분담</p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 태영 :  무임승차 표 스스로 작품완성</p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 재선 : 월별 데이터(데이터 정제(1~12) > 45호선)</p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 유경 : 월별 데이터(데이터 정제(1~12) > 123호선)</p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 선영 : 시간별 이용현황 다중 선택지로 user가 선택할 수 있도록</p>
+
 </details> 
 
 
-&nbsp;&nbsp;&nbsp;<h3><details><summary> 4일차 [210624 / D-DAY] </summary></p>
-&nbsp;&nbsp;&nbsp;1. 패치노트 바로가기 기능추가</p>
-&nbsp;&nbsp;&nbsp;2. 발표준비</p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 발표구성 짜기</p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 발표자료 추가</p>
+&nbsp;&nbsp;&nbsp;<h3><details><summary> 네번째 및 마지막 회의 [210716, 210717] </summary></p>
+&nbsp;&nbsp;&nbsp;1. 각자 만든것 합치기</p>
+&nbsp;&nbsp;&nbsp;2. html연결 문제 해결</p>
+
 </details>
 
 <br><br><br>
