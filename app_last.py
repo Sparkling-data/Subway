@@ -32,10 +32,11 @@ def showchart():
 @app.route("/selectstop", methods=["POST"])
 def selectstop():
     stops = request.form.get('stoplist')
+    len = request.form.get('len')
     stops = stops.split(',')
-    Selectstop(stops)
+    # Selectstop(stops)
     print(stops)
-    return '가즈아'
+    return Selectstop(stops, len)
 
 
 
@@ -49,8 +50,8 @@ def mychart_park():
 @app.route("/showchart9", methods=["POST"])
 def showchart9():
     stops = request.form.get('line')
-    selectnum(stops)
-    return '아무거낭'
+    print(stops)
+    return selectnum(stops)
     
 
 
@@ -80,9 +81,6 @@ def plot3():
 def plot4():
 
   return '{"img04" : "./static/img/chart04.png"}'
-
-
-
 
 
 if __name__=="__main__":

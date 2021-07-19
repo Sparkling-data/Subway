@@ -31,7 +31,7 @@ def hourchart():
     return hour_two_on_change.to_json(orient = 'records', force_ascii=False)
 
     
-def Selectstop(stops):
+def Selectstop(stops, len):
     hour = pd.read_excel('./datas/monthlytotal_202106Tmoney.xls', sheet_name='지하철 시간대별 이용현황', thousands=',', header=1)
     hour.columns = ['사용월', '호선명', '역ID', '지하철역', '04시승차', '04시하차', '05시승차', '05시하차', '06시승차', '06시하차', '07시승차', '07시하차', '08시승차', '08시하차', '09시승차', '09시하차', '10시승차', '10시하차', '11시승차', '11시하차', '12시승차', '12시하차', '13시승차', '13시하차', '14시승차', '14시하차', '15시승차', '15시하차', '16시승차', '16시하차', '17시승차', '17시하차', '18시승차', '18시하차', '19시승차', '19시하차', '20시승차', '20시하차', '21시승차', '21시하차', '22시승차', '22시하차', '23시승차', '23시하차', '24시승차', '24시하차', '01시승차', '01시하차', '02시승차', '02시하차', '03시승차', '03시하차', '작업일시']
     del hour['작업일시']
@@ -44,7 +44,9 @@ def Selectstop(stops):
 
     hour_two_on_change.plot(y=stops, kind='line', figsize=(15,10), fontsize=18)
     plt.title('202106 시간별 2호선역 승하차객수', fontsize=30)
-    plt.savefig('./static/img/line2chart.png')
+    plt.savefig('./static/img/line'+ len + 'chart.png')
+    # plt.savefig('./static/img/line2chart.png')
+    return 'line'+ len + 'chart.png'
 
 
 
@@ -66,6 +68,7 @@ def selectnum(line):
         plt.rcParams['lines.linewidth'] = 4
         plt.xticks(rotation=90)
         pp1.savefig("./static/img/output1.jpeg", bbox_inches='tight', pad_inches=0.5)
+        return "output1.jpeg"
     
 
     elif line == '2호선':
@@ -85,8 +88,8 @@ def selectnum(line):
         pp2 = sns.catplot(x='지하철역', y='무임승차', data=dfmean22, kind='bar')
         plt.rcParams['lines.linewidth'] = 4
         plt.xticks(rotation=90)
-        pp2.savefig("./static/img/output1.jpeg", bbox_inches='tight', pad_inches=0.5)
-
+        pp2.savefig("./static/img/output2.jpeg", bbox_inches='tight', pad_inches=0.5)
+        return "output2.jpeg"
 
     elif line == '3호선':
         # # 3호선
@@ -102,8 +105,8 @@ def selectnum(line):
         pp3 = sns.catplot(x='지하철역', y='무임승차', data=dfmean33, kind='bar')
         plt.rcParams['lines.linewidth'] = 4
         plt.xticks(rotation=90)
-        pp3.savefig("./static/img/output1.jpeg", bbox_inches='tight', pad_inches=0.5)
-
+        pp3.savefig("./static/img/output3.jpeg", bbox_inches='tight', pad_inches=0.5)
+        return "output3.jpeg"
 
     elif line == '4호선':
         # # 4호선
@@ -120,7 +123,8 @@ def selectnum(line):
         pp4 = sns.catplot(x='지하철역', y='무임승차', data=dfmean44, kind='bar')
         plt.rcParams['lines.linewidth'] = 4
         plt.xticks(rotation=90) 
-        pp4.savefig("./static/img/output1.jpeg", bbox_inches='tight', pad_inches=0.5)
+        pp4.savefig("./static/img/output4.jpeg", bbox_inches='tight', pad_inches=0.5)
+        return "output4.jpeg"
 
     else :
         # 5호선
@@ -135,7 +139,8 @@ def selectnum(line):
         pp5 = sns.catplot(x='지하철역', y='무임승차', data=dfmean55, kind='bar')
         plt.rcParams['lines.linewidth'] = 4
         plt.xticks(rotation=90) 
-        pp5.savefig("./static/img/output1.jpeg", bbox_inches='tight', pad_inches=0.5)
+        pp5.savefig("./static/img/output5.jpeg", bbox_inches='tight', pad_inches=0.5)
+        return "output5.jpeg"
 
 
 

@@ -44,15 +44,15 @@
     xhttp.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
         // data = app.py에서 return 받은 결과값
-        data = this.responseText;
+        img_name = this.responseText;
         //data = JSON.parse(data);
-        console.log(data)
+        console.log(img_name)
 
         // function clear() {
         //   document.getElementById("number1").innerHTML = "";
         // }
 
-        document.getElementById("number1").innerHTML = `<img src="http://127.0.0.1:5000/static/img/output1.jpeg" width=700 height=700>`
+        document.getElementById("number1").innerHTML = '<img src="http://127.0.0.1:5000/static/img/' + img_name +'" width=700 height=700>'
 
       };
 
@@ -60,7 +60,7 @@
     }
     queryString = "line=" + document.getElementById('line9chart').innerText;
     console.log(queryString)
-    xhttp.open("POST", "/showchart");
+    xhttp.open("POST", "/showchart9");
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send(queryString);
   }
@@ -118,21 +118,21 @@
 
     <!-- Header -->
     <header class="w3-container" style="padding-top:22px">
-      <h5><b><i class="far fa-chart-bar"></i> My Dashboard</b></h5>
+      <h5><b><i class="fas fa-chart-bar" style="size: 60px;"></i> My Dashboard</b></h5>
     </header>
 
     <div class="w3-row-padding w3-margin-bottom" style="overflow:scroll;">
       <h3>호선 선택</h3>
       <form id="line9check9">
-        <input type="checkbox" id="1호선" name="line" value="1호선" onclick="getline9Value()">
+        <input type="radio" id="1호선" name="line" value="1호선" onclick="getline9Value()">
         <label for="1호선">1호선</label>
-        <input type="checkbox" id="2호선" name="line" value="2호선" onclick="getline9Value()">
+        <input type="radio" id="2호선" name="line" value="2호선" onclick="getline9Value()">
         <label for="2호선">2호선</label>
-        <input type="checkbox" id="3호선" name="line" value="3호선" onclick="getline9Value()">
+        <input type="radio" id="3호선" name="line" value="3호선" onclick="getline9Value()">
         <label for="3호선">3호선</label>
-        <input type="checkbox" id="4호선" name="line" value="4호선" onclick="getline9Value()">
+        <input type="radio" id="4호선" name="line" value="4호선" onclick="getline9Value()">
         <label for="4호선">4호선</label>
-        <input type="checkbox" id="5호선" name="line" value="5호선" onclick="getline9Value()">
+        <input type="radio" id="5호선" name="line" value="5호선" onclick="getline9Value()">
         <label for="5호선">5호선</label>
         <!-- <input type="checkbox" id="호선" name="line" value="호선">
         <label for="호선">호선</label> -->
@@ -149,13 +149,13 @@
 
     <hr>
     <div class="w3-container">
-      <h5>General Stats</h5>
+      <!-- <h5>General Stats</h5> -->
 
     </div>
     <hr>
 
     <div class="w3-container">
-      <h5>Countries</h5>
+      <!-- <h5>Countries</h5> -->
       <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
 
       </table><br>
@@ -163,26 +163,28 @@
     </div>
     <hr>
     <div class="w3-container">
-      <h5>Recent Users</h5>
+      <!-- <h5>Recent Users</h5> -->
 
     </div>
     <hr>
 
     <div class="w3-container">
-      <h5>Recent Comments</h5>
+      <!-- <h5>Recent Comments</h5> -->
 
     </div>
 
     <div class="w3-row">
     </div>
     <br>
-    <div class="w3-container w3-dark-grey w3-padding-32">
+    <div class="w3-container">
 
     </div>
 
+  
     <!-- Footer -->
+    <br><br><br><br><br><br><br><br>
     <footer class="w3-container w3-padding-16 w3-light-grey">
-      <h4>FOOTER</h4>
+      <!-- <h4>FOOTER</h4> -->
       <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
     </footer>
 

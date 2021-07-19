@@ -22,10 +22,9 @@ def selectstop():
     # stopslist = []
     stops = request.form.get('stoplist')
     stops = stops.split(',')
-    print(stops)
-
-    
+    Selectstop(stops)
     return '가즈아'
+    
     # return Selectstop(stops)
 
 
